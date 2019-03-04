@@ -51,8 +51,8 @@
 <script>DD_belatedPNG.fix('.png')</script>
 <![endif]-->
 <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>天行九歌之焰灵姬小姐姐的小迷弟出品®</p>
-<p>More Templates <a href="http://www.cssmoban.com/" target="_blank" title="æ¨¡æ¿ä¹å®¶">这里是啥来着</a> - Collect from <a href="http://www.cssmoban.com/" title="ç½é¡µæ¨¡æ¿" target="_blank">还有这里</a></p>
+<p>焰灵姬小姐姐的小迷弟出品®</p>
+<p>内蒙古师范大学<a href="http://www.imnu.edu.cn/" title="内蒙古师范大学" target="_blank">师大官网</a> - 玄机科技<a href="http://xjent.com//" target="_blank" title="玄机官网">玄机官网</a></p>
 </div>
 </body>
 </html>

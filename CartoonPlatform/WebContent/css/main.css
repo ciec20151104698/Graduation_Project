@@ -19,7 +19,7 @@ input,button,select,textarea{outline:none}
 .login input.submit{padding:6px 20px;}
 .login .box{position:relative;z-index:100;margin:0 auto;width:700px;height:320px;background:url(../images/login.png) center top no-repeat;}
 .login .log{position:relative;width:370px;height:260px;margin:0 auto;padding:90px 0 0 20px;}
-.login .logo{height:85px;position:absolute;top:15px;left:180px;background:url(../images/logo-login.png) no-repeat;width:350px;height:50px;}
+.login .logo{height:85px;position:absolute;top:15px;left:180px;background:url(../images/logo-login.png) no-repeat;width:350px;height:100px;background-size: 100%;}
 .login label{display:inline-block;width:70px;text-align:right;padding-right:20px;vertical-align:middle;}
 .login .name{padding:10px 5px;font-size:14px;}
 .login .pwd{padding:10px 5px;font-size:14px;}
