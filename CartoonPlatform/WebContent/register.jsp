@@ -19,8 +19,8 @@
 	<!-- progressbar -->
 	<ul id="progressbar">
 		<li class="active">Account Setup</li>
-		<li>Social Profiles</li>
-		<li>Personal Details</li>
+		<li>Personal Profiles</li>
+		<li>Contact Information</li>
 	</ul>
 	<!-- fieldsets -->
 	<fieldset>
@@ -47,9 +47,10 @@
 		<input type="text" name="register_telephone" id="register_telephone" placeholder="这里输入电话号码" />
 		<textarea name="address" placeholder="Address"></textarea>
 		<input type="button" name="previous" class="previous action-button" value="Previous" />
-		<input type="submit" name="submit" class="submit action-button" value="Submit" /><!-- onClick="Submit()" -->
+		<input type="submit" name="submit" class="action-button" value="Submit" /><!-- onClick="Submit()"   class="submit action-button"   -->
 	</fieldset>
 </form>
+
 <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="js/jquery.easing.min.js" type="text/javascript"></script>
 <script src="js/jQuery.time.js" type="text/javascript"></script>
