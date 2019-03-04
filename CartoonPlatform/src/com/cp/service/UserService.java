@@ -22,4 +22,18 @@ public class UserService {
 		return allinfo;
 	}
 
+	public String CheckRegisterId(String register_id) {
+		// TODO Auto-generated method stub
+		String checkstring = "";
+		UserDao checkregisterid = new UserDao();
+		checkstring = 	checkregisterid.CheckRegisterIdDao(register_id);
+		return checkstring;
+	}
+
+	public void AddRegisterInfo(UserBean register_info) {
+		// TODO Auto-generated method stub
+		UserDao addinfo = new UserDao();
+		addinfo.AddRegisterInfoDao(register_info);
+	}
+
 }

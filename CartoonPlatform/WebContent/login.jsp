@@ -19,17 +19,18 @@
 			<div class="log">
 				<form action="LoginServlet">
 				<div class="name">
-					<label>账号：</label><input type="text" class="text" name="login_id" placeholder="这里输入账号o(´^｀)o" name="value_1" tabindex="1">
+					<label>账号：</label><input type="text" class="text" name="login_id" placeholder="这里输入账号o(´^｀)o" tabindex="1">
 				</div>
 				<div class="pwd">
 					<label>密码：</label>
-					<input type="password" class="text" name="login_pwd" placeholder="这里输入密码٩( 'ω' )و " name="value_2" tabindex="2">
+					<input type="password" class="text" name="login_pwd" placeholder="这里输入密码٩( 'ω' )و " tabindex="2">
 					
 						<input type="submit" class="registerbutton" tabindex="3" value="注册">
 					
 						<input type="submit" class="submit" tabindex="3" value="登录">
-					
+				
 					<div class="check"></div>
+				</div>
 				<div class="tip"></div>
 				</form>
 			</div>
@@ -50,8 +51,8 @@
 <script>DD_belatedPNG.fix('.png')</script>
 <![endif]-->
 <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>éç¨æµè§å¨ï¼360ãFireFoxãChromeãSafariãOperaãå²æ¸¸ãæçãä¸çä¹çª. ä¸æ¯æIE8åä»¥ä¸æµè§å¨ã</p>
-<p>More Templates <a href="http://www.cssmoban.com/" target="_blank" title="æ¨¡æ¿ä¹å®¶">æ¨¡æ¿ä¹å®¶</a> - Collect from <a href="http://www.cssmoban.com/" title="ç½é¡µæ¨¡æ¿" target="_blank">ç½é¡µæ¨¡æ¿</a></p>
+<p>天行九歌之焰灵姬小姐姐的小迷弟出品®</p>
+<p>More Templates <a href="http://www.cssmoban.com/" target="_blank" title="æ¨¡æ¿ä¹å®¶">这里是啥来着</a> - Collect from <a href="http://www.cssmoban.com/" title="ç½é¡µæ¨¡æ¿" target="_blank">还有这里</a></p>
 </div>
 </body>
 </html>

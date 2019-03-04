@@ -1,8 +1,8 @@
 package com.cp.bean;
 
 public class UserBean {
-	private int id,login_age;
-	private String login_id,login_pwd,login_name,login_type,login_sex,login_email,login_telephone;
+	private int id;
+	private String login_id,login_pwd,login_name,login_type,login_sex,login_email,login_telephone,login_age;
 	
 	public int getId() {
 		return id;
@@ -10,10 +10,10 @@ public class UserBean {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getLogin_age() {
+	public String getLogin_age() {
 		return login_age;
 	}
-	public void setLogin_age(int login_age) {
+	public void setLogin_age(String login_age) {
 		this.login_age = login_age;
 	}
 	public String getLogin_id() {

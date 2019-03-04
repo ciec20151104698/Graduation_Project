@@ -40,14 +40,15 @@ public class LoginServlet extends HttpServlet {
 		loginuser.setLogin_id(request.getParameter("login_id"));
 		loginuser.setLogin_pwd(request.getParameter("login_pwd"));
 		
-		System.out.println(request.getParameter("login_id"));
-		System.out.println(request.getParameter("login_pwd"));
+		//System.out.println(request.getParameter("login_id"));
+		//System.out.println(request.getParameter("login_pwd"));
 		
 		String checkstring = "";
-		
 		UserService idcheck = new UserService();
 		checkstring = idcheck.checkuserid(loginuser);
-		System.out.println(checkstring);
+		
+		//System.out.println(checkstring);
+		
 		if(checkstring == "YES") {
 			UserService supplementinfo = new UserService();
 			UserBean userinfo = supplementinfo.selectinfo(loginuser.getLogin_id());
