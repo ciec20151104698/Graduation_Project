@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="com.cp.bean.UserBean"%>
-<% UserBean userinfo = (UserBean)request.getSession().getAttribute("USERINFO"); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,11 +29,11 @@
 			</div>
 			<nav class="header-nav">
 				<ul>
-					<li><span class="line"></span> <a href="#" class="dreamer">首页</a>
+					<li><span class="line"></span> <a href="#" class="dreamer">tang生活家</a>
 						<i class="icon-text__pink icon-new">new</i></li>
-					<li><span class="line"></span>欢迎用户 <span class="xt-yanse"><%=userinfo.getLogin_name()%></span> 登录本网站</a></li>
-					<li><span class="line"></span> <a href="person.jsp" class="icon-text__pink register">个人中心</a></li>
-					
+					<li><span class="line"></span> <a href="register.jsp"
+						class="icon-text__pink register">注册</a></li>
+					<li><span class="line"></span> <a href="login.jsp">登录</a></li>
 					<li><span class="line"></span> <i class="icon-app"></i> <a
 						href="#" class="app">手机版</a> <i class="icon-arrow"></i>
 						<div class="app-hover">
