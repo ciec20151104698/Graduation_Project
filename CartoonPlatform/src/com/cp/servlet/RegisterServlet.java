@@ -54,6 +54,7 @@ public class RegisterServlet extends HttpServlet {
 				addregisterinfo.AddRegisterInfo(register_info);
 				out.print("<script type='text/javascript'>");
 				out.print("alert('注册成功~~(ﾉ´▽｀)ﾉ♪');");
+				request.getSession().setAttribute("USERINFO",register_info);
 				out.print("window.location='index.jsp';");
 				out.print("</script>");
 			}else {
