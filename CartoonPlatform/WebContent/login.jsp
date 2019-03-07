@@ -25,7 +25,7 @@
 					<label>密码：</label>
 					<input type="password" class="text" name="login_pwd" placeholder="这里输入密码٩( 'ω' )و " tabindex="2">
 					
-						<input type="submit" class="registerbutton" tabindex="3" value="注册">
+						<input type="button" class="registerbutton" onclick="window.location.href='register.jsp'" tabindex="3" value="注册">
 					
 						<input type="submit" class="submit" tabindex="3" value="登录">
 				
