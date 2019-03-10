@@ -182,23 +182,22 @@
 
                     <dl class="dl-horizontal clear-mrg">
                         <dt class="text-upper">Full Name</dt>
-                        <dd>Ola Maria Lowe</dd>
+                        <dd><%login_user.getLogin_name();%></dd>
 
                         <dt class="text-upper">D.o.b.</dt>
                         <dd>05 Sep 1986</dd>
 
-                        <dt class="text-upper">address</dt>
-                        <dd>24058, Belgium, Brussels,
-                            Liutte 27, BE</dd>
+                        <dt class="text-upper">Rank</dt>
+                        <dd>90</dd>
 
                         <dt class="text-upper">e-mail</dt>
-                        <dd><a href="mailto:robertsmith@company.com">robertsmith@company.com</a></dd>
+                        <dd><a href="<%login_user.getLogin_email();%>"><%login_user.getLogin_email();%></a></dd>
 
                         <dt class="text-upper">phone</dt>
-                        <dd>+1 256 254 84 56</dd>
+                        <dd><%login_user.getLogin_telephone();%></dd>
 
-                        <dt class="text-upper">freelance</dt>
-                        <dd>Available</dd>
+                        <dt class="text-upper">Achievement Title</dt>
+                        <dd><%login_user.getLogin_type();%></dd>
                     </dl>
                 </div><!-- .col-sm-6 -->
 
