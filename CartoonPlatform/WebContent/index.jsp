@@ -34,7 +34,7 @@
 					<li><span class="line"></span> <a href="#" class="dreamer">首页</a>
 						<i class="icon-text__pink icon-new">new</i></li>
 					<li><span class="line"></span>欢迎用户 <span class="xt-yanse"><%=userinfo.getLogin_name()%></span> 登录本网站</a></li>
-					<li><span class="line"></span> <a href="page/person_index/person.jsp" class="icon-text__pink register">个人中心</a></li>
+					<li><span class="line"></span> <a href="person_OLD.jsp" class="icon-text__pink register">个人中心</a></li>
 					
 					<li><span class="line"></span> <i class="icon-app"></i> <a
 						href="#" class="app">手机版</a> <i class="icon-arrow"></i>
