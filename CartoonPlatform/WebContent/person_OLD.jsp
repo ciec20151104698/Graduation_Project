@@ -110,9 +110,9 @@ function _submits()
 									</div>
 								</div>
 								<!-- <span> <input type="file" id="selectImg" value=""></input> </span> -->
-								<% String user_id =userinfo.getLogin_name();
+								<%-- String user_id =userinfo.getLogin_name();
 									request.setAttribute("FileUserId", user_id);
-								%>
+								--%>
 
 								<input type=hidden name="submitcontent" id="submitcontent">
 								<button type="submit" id="send"
@@ -149,20 +149,20 @@ function _submits()
 						</div>
 
 					</div>--%>
-					 
+
 					<div class="col-sm-12 col-xs-12 message">
-					<form
-						action="UploadServlet"
-						enctype="multipart/form-data" method="post">
-						<input type="text" class="form-control" name="filetitle"
-							placeholder="资源名">
-
-							上传文件：<input type="file" name="file1"><br />
-						<input type="submit" value="提交">
-
-					</form>
+						<form action="UploadServlet" enctype="multipart/form-data"
+							method="post">
+							<input type="text" class="form-control" id="file_title" name="file_title"
+								placeholder="资源名"> 上传文件：<input type="file" name="file1"><br />
+							<input type="submit" value="提交">
+							<%
+								String user_id = userinfo.getLogin_id();
+								request.getSession().setAttribute("FileUserId", user_id);
+							%>
+						</form>
 					</div>
-					
+
 				</div>
 
 
@@ -305,16 +305,17 @@ function _submits()
 									} else {
 										$(".item_msg")
 												.append(
-														"<div class='col-sm-12 col-xs-12 message' > <img src='img/icon.png' class='col-sm-2 col-xs-2' style='border-radius: 50%'><div class='col-sm-10 col-xs-10'><span style='font-weight: bold;''><%=userinfo.getLogin_name()%></span> <br><small class='date' style='color:#999'>刚刚</small><div class='msg_content'>"
+														"<div class='col-sm-12 col-xs-12 message' > <img src='img/icon.png' class='col-sm-2 col-xs-2' style='border-radius: 50%'><div class='col-sm-10 col-xs-10'><span style='font-weight: bold;''><%=userinfo.getLogin_name()%>
+		</span> <br><small class='date' style='color:#999'>刚刚</small><div class='msg_content'>"
 																+ content
 																+ "<img class='mypic' onerror='this.src='img/bg_1.jpg' src='file:///"+imgPath+"' ></div></div></div>");
 									}
 								} else {
 									$(".item_msg")
-									.append(
-											"<div class='col-sm-12 col-xs-12 message' > <img src='img/icon.png' class='col-sm-2 col-xs-2' style='border-radius: 50%'><div class='col-sm-10 col-xs-10'><span style='font-weight: bold;''>Jack.C</span> <br><small class='date' style='color:#999'>刚刚</small><div class='msg_content'>"
-													+ content
-													+ "</div></div></div>");
+											.append(
+													"<div class='col-sm-12 col-xs-12 message' > <img src='img/icon.png' class='col-sm-2 col-xs-2' style='border-radius: 50%'><div class='col-sm-10 col-xs-10'><span style='font-weight: bold;''>Jack.C</span> <br><small class='date' style='color:#999'>刚刚</small><div class='msg_content'>"
+															+ content
+															+ "</div></div></div>");
 								}
 
 							});

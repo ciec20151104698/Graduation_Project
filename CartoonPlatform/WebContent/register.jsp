@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>动漫交流平台(･ω･)ﾉ</title>
 <link rel="stylesheet" media="screen" href="css/css.css" />
 </head>
@@ -12,7 +12,7 @@
 	//window.location.href="RegisterServlet?param=hrefMethod";
 //}
 </script>
-<div style="display:none"><p>jQueryÊÇÏÖÔÚ×îÁ÷ÐÐµÄJavaScript¹¤¾ß¿â¡£</p><p>¾ÝÍ³¼Æ£¬Ä¿Ç°È«ÊÀ½ç57.3%µÄÍøÕ¾Ê¹ÓÃËü¡£Ò²¾ÍÊÇËµ£¬10¸öÍøÕ¾ÀïÃæ£¬ÓÐ6¸öÊ¹ÓÃjQuery¡£Èç¹ûÖ»¿¼²ìÊ¹ÓÃ¹¤¾ß¿âµÄÍøÕ¾£¬Õâ¸ö±ÈÀý¾Í»áÉÏÉýµ½¾ªÈËµÄ91.7%¡£</p><p>ËäÈ»jQueryÈç´ËÊÜ»¶Ó­£¬µ«ÊÇËüÓ·Ö×µÄ<a href="http://mathiasbynens.be/demo/jquery-size" target="_blank" data-mce-href="http://mathiasbynens.be/demo/jquery-size">Ìå»ý</a>Ò²ÈÃÈËÍ·Í´²»ÒÑ¡£jQuery 2.0µÄÔ­Ê¼´óÐ¡Îª235KB£¬ÓÅ»¯ºóÎª81KB£»Èç¹ûÊÇÖ§³ÖIE6¡¢7¡¢8µÄjQuery 1.8.3£¬Ô­Ê¼´óÐ¡Îª261KB£¬ÓÅ»¯ºóÎª91KB¡£</p><p>ÕâÑùµÄÌå»ý£¬¼´Ê¹ÊÇ¿í´ø»·¾³£¬ÍêÈ«¼ÓÔØÒ²ÐèÒª1Ãë»ò¸ü³¤£¬¸ü²»ÒªËµÒÆ¶¯Éè±¸ÁË¡£ÕâÒâÎ¶×Å£¬Èç¹ûÄãÊ¹ÓÃÁËjQuery£¬ÓÃ»§ÖÁÉÙÑÓ³Ù1Ãë£¬²ÅÄÜ¿´µ½Íø Ò³Ð§¹û¡£¿¼ÂÇµ½±¾ÖÊÉÏ£¬jQueryÖ»ÊÇÒ»¸ö²Ù×÷DOMµÄ¹¤¾ß£¬ÎÒÃÇ²»½öÒªÎÊ£ºÈç¹ûÖ»ÊÇÎªÁË¼¸¸öÍøÒ³ÌØÐ§£¬ÊÇ·ñÓÐ±ØÒª¶¯ÓÃÕâÃ´´óµÄ¿â£¿</p></div>
+
 
 <form id="msform" action="RegisterServlet" method="post">
 

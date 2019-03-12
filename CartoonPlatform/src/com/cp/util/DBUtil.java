@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class DBUtil {
 	private static String user="root";
 	private static String pwd="123456";
-	private static String url="jdbc:mysql://localhost:3306/cp_database";
+	private static String url="jdbc:mysql://localhost:3306/cp_database?useUnicode=true&characterEncoding=UTF-8";
 	static {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");

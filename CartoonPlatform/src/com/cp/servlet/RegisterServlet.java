@@ -33,9 +33,10 @@ public class RegisterServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
+		request.setCharacterEncoding("utf-8");
 		UserBean register_info = new UserBean();
 		PrintWriter out = response.getWriter();
-		
+		 
 		register_info.setLogin_id(request.getParameter("register_id"));
 		register_info.setLogin_pwd(request.getParameter("register_pwd"));
 		String register_repwd = request.getParameter("register_repwd");
@@ -45,13 +46,16 @@ public class RegisterServlet extends HttpServlet {
 		register_info.setLogin_name(request.getParameter("register_name"));
 		register_info.setLogin_email(request.getParameter("register_email"));
 		register_info.setLogin_telephone(request.getParameter("register_telephone"));
-		
+		System.out.println();
 		if(register_pwd.equals(register_repwd)) {
 			UserService checkidservice = new UserService();
 			String checkstring = checkidservice.CheckRegisterId(register_info.getLogin_id());
 			if(checkstring == "YES") {
 				UserService addregisterinfo = new UserService();
 				addregisterinfo.AddRegisterInfo(register_info);
+				
+				System.out.println(register_info.getLogin_name());
+				
 				out.print("<script type='text/javascript'>");
 				out.print("alert('注册成功~~(ﾉ´▽｀)ﾉ♪');");
 				request.getSession().setAttribute("USERINFO",register_info);

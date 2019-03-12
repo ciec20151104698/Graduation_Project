@@ -92,6 +92,7 @@ public class UserDao {
 	public void AddRegisterInfoDao(UserBean register_info) {
 		// TODO Auto-generated method stub
 		Connection conn = DBUtil.getConnection();
+		
 		String sql = "insert into tb_user(login_id,login_pwd,login_name,login_sex,login_age,login_email,login_telephone,login_type) values (?,?,?,?,?,?,?,?)";
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
