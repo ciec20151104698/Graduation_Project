@@ -47,11 +47,11 @@
                              <div class="ace-nav-container ace-container hidden-sm hidden-xs">
                                  <nav id="ace-main-nav">
                                     <ul class="clear-list">
-										<li><a href="../index.jsp">首页</a></li>
-										<li><a href="../resource_index.jsp">资源站</a>
-										<li><a href="../video_index.jsp">视频区</a></li>
-										<li><a href="../posting_index.jsp">交流站</a></li>
-										<li><a href="../question_index.jsp">问题区</a></li>
+										<li><a href="../../index.jsp">首页</a></li>
+										<li><a href="../resource_index/resource_index.jsp">资源站</a>
+										<li><a href="../video_index/video_index.jsp">视频区</a></li>
+										<li><a href="../communication_index/communication_index.jsp">交流站</a></li>
+										<li><a href="../question_index/question_index.jsp">问题区</a></li>
 										<li><a href="person.jsp">关于个人</a></li>
 									</ul>
                                  </nav>
@@ -107,7 +107,7 @@
 			</div>
 
 			<footer class="ace-card-footer">
-				<a class="btn btn-lg btn-block btn-thin btn-upper " href="#">个人信息管理</a>
+				<a class="btn btn-lg btn-block btn-thin btn-upper " href="../user_index/user_index.jsp">个人信息管理</a>
 			</footer>
 		</article><!-- #ace-card -->
 

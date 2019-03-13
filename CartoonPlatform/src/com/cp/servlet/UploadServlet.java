@@ -74,7 +74,7 @@ public class UploadServlet extends HttpServlet {
 					// 按照传统方式获取数据
 					return;
 				}
-				
+				String file_title = "";
 				// 4、使用ServletFileUpload解析器解析上传数据，解析结果返回的是一个List<FileItem>集合，每一个FileItem对应一个Form表单的输入项
 				List<FileItem> list = upload.parseRequest(request);
 				for (FileItem item : list) {
@@ -85,6 +85,9 @@ public class UploadServlet extends HttpServlet {
 						String value = item.getString("UTF-8");
 						value = new String(value.getBytes("UTF-8"));
 						System.out.println(name + "=" + value);
+						
+						file_title = value;
+						
 					}else{// 如果fileitem中封装的是上传文件
 							// 得到上传的文件名称，
 						String filename = item.getName();
@@ -126,11 +129,11 @@ public class UploadServlet extends HttpServlet {
 					}
 				}
 				
-//				FileUploadDao fileup = new FileUploadDao();
-//				user_id = (String) request.getSession().getAttribute("FileUserId");
-//				fileup.titleupload(user_id,filetitle,filelocation_name,filelocation);
-//				System.out.println(user_id);
-//				System.out.println(filetitle);
+				FileUploadDao fileup = new FileUploadDao();
+				user_id = (String) request.getSession().getAttribute("FileUserId");
+				fileup.titleupload(user_id,file_title,filelocation_name,filelocation);
+				System.out.println(user_id);
+				System.out.println(file_title);
 				
 		} catch (Exception e) {
 			message = "文件上传失败！";

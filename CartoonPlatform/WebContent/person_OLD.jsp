@@ -50,7 +50,7 @@ function _submits()
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;<%=userinfo.getLogin_name()%></a></li>
 
-				<li class="dropdown"><a href="#" class="dropdown-toggle"
+				<li class="dropdown"><a href="page/admin_index/index.jsp" class="dropdown-toggle"
 					data-toggle="dropdown"> 设置 <b class="caret"></b>
 				</a>
 					<ul class="dropdown-menu">
