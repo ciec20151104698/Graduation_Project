@@ -42,4 +42,36 @@ public class CommunicationDealDao {
 		}
 		return list;
 	}
+	
+	public ArticleBean selecthost(String article) {
+		Connection conn = DBUtil.getConnection();
+		String sql = "select * from tb_article where article_id=? and user_type =?";
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		ArticleBean tl = null;
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, article);
+			pstm.setString(2, "master");
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				int article_id = rs.getInt("article_id");
+				String article_title = rs.getString("article_title");
+				String article_content = rs.getString("article_content");
+				String user_id = rs.getString("user_id");
+				tl = new ArticleBean();
+				tl.setCommunication_id(article_id);
+				tl.setCommunication_title(article_title);
+				tl.setCommunication_content(article_content);
+				tl.setLogin_id(user_id);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.CloseDB(conn, pstm, rs);
+		}
+		return tl;
+	}
 }
