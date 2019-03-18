@@ -108,4 +108,38 @@ public class CommunicationDealDao {
 		}
 		return list;
 	}
+	public String ContentAdd(String host_article_id,String reply_id,String reply_title, String reply_content) {
+		// TODO Auto-generated method stub
+		Connection conn = DBUtil.getConnection();
+		String sql = "insert into tb_communication(login_id,communication_title,communication_content,communication_type) values (?,?,?,?)";
+		String idset = "UPDATE tb_article SET communication_id=(SELECT id from (SELECT * FROM tb_communication)AS temp WHERE communication_id=? and communication_type=?) WHERE login_id = ? and communication_title=?and communication_content=?";
+		String temp = "NO";
+		PreparedStatement pstm = null;
+		PreparedStatement pstm_idset = null;
+		ResultSet rs = null;
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1, reply_id);
+			pstm.setString(2, reply_title);
+			pstm.setString(3, reply_content);
+			pstm.setString(4, "reply");
+			pstm.executeUpdate();
+			
+			pstm_idset = conn.prepareStatement(idset);
+			pstm_idset.setString(1, host_article_id);
+			pstm_idset.setString(2,"master");
+			pstm_idset.setString(3, reply_id);
+			pstm_idset.setString(4, reply_title);
+			pstm_idset.setString(5, reply_content);
+			pstm_idset.executeUpdate();
+			
+			temp = "YES";
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.CloseDB(conn, pstm, rs);
+		}
+		return temp;
+	}
 }
