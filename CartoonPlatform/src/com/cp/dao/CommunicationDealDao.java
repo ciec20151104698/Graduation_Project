@@ -74,4 +74,38 @@ public class CommunicationDealDao {
 		}
 		return tl;
 	}
+	
+	public List selectReply(String article) {
+		// TODO Auto-generated method stub
+		Connection conn = DBUtil.getConnection();
+		String sql = "select * from tb_article where article_id=? and user_type =?";
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		List<ArticleBean> list = new ArrayList<ArticleBean>();
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1,article);
+			pstm.setString(2,"reply");
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				int article_id = rs.getInt("article_id");
+				String article_title = rs.getString("article_title");
+				String article_content = rs.getString("article_content");
+				String user_id = rs.getString("user_id");
+				ArticleBean tl = new ArticleBean();
+				tl.setCommunication_id(article_id);
+				tl.setCommunication_title(article_title);
+				tl.setCommunication_content(article_content);
+				tl.setLogin_id(user_id);
+				list.add(tl);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBUtil.CloseDB(conn, pstm, rs);
+		}
+		return list;
+	}
 }
