@@ -7,7 +7,7 @@ public class ReplyService {
 		// TODO Auto-generated method stub
 		String temp = "NO";
 		CommunicationDealDao replyadd = new CommunicationDealDao();
-		temp = replyadd.ContentAdd(host_article_id,reply_id,reply_title,reply_content);
+		temp = replyadd.ReplyContentAdd(host_article_id,reply_id,reply_title,reply_content);
 		return temp;
 	}
 
