@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cp.bean.UserBean;
-import com.cp.service.ContentService;
+import com.cp.service.CommunicationService;
 
 /**
  * Servlet implementation class ContentIssueServlet
@@ -40,11 +40,11 @@ public class ContentIssueServlet extends HttpServlet {
 		
 		UserBean user = (UserBean)request.getSession().getAttribute("USERINFO");
 		
-		ContentService contentadd = new ContentService();
+		CommunicationService contentadd = new CommunicationService();
 		String temp = "";
 		temp = contentadd.content_add(user.getLogin_name(),main_title,main_content);
 		if(temp=="YES") {
-			response.sendRedirect("noteList.jsp");
+			response.sendRedirect("page/communication_index/noteList.jsp");
 		}else {
 			out.print("<script type='text/javascript'>");
 			out.print("alert('ERROR');");

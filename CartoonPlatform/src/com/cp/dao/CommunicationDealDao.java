@@ -13,7 +13,7 @@ import com.cp.util.DBUtil;
 public class CommunicationDealDao {
 	public List selectArticle() {
 		Connection conn = DBUtil.getConnection();
-		String sql = "select * from tb_article where user_type =?";
+		String sql = "select * from tb_communication where communication_type =?";
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		List<ArticleBean> list = new ArrayList<ArticleBean>();
@@ -45,7 +45,7 @@ public class CommunicationDealDao {
 	
 	public ArticleBean selecthost(String article) {
 		Connection conn = DBUtil.getConnection();
-		String sql = "select * from tb_article where article_id=? and user_type =?";
+		String sql = "select * from tb_communication where communication_id=? and communication_type =?";
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		ArticleBean tl = null;
@@ -56,10 +56,10 @@ public class CommunicationDealDao {
 			rs = pstm.executeQuery();
 			while (rs.next()) {
 				int id = rs.getInt("id");
-				int article_id = rs.getInt("article_id");
-				String article_title = rs.getString("article_title");
-				String article_content = rs.getString("article_content");
-				String user_id = rs.getString("user_id");
+				int article_id = rs.getInt("communication_id");
+				String article_title = rs.getString("communication_title");
+				String article_content = rs.getString("communication_content");
+				String user_id = rs.getString("login_id");
 				tl = new ArticleBean();
 				tl.setCommunication_id(article_id);
 				tl.setCommunication_title(article_title);
@@ -78,7 +78,7 @@ public class CommunicationDealDao {
 	public List selectReply(String article) {
 		// TODO Auto-generated method stub
 		Connection conn = DBUtil.getConnection();
-		String sql = "select * from tb_article where article_id=? and user_type =?";
+		String sql = "select * from tb_communication where communication_id=? and communication_type =?";
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		List<ArticleBean> list = new ArrayList<ArticleBean>();
@@ -89,10 +89,10 @@ public class CommunicationDealDao {
 			rs = pstm.executeQuery();
 			while (rs.next()) {
 				int id = rs.getInt("id");
-				int article_id = rs.getInt("article_id");
-				String article_title = rs.getString("article_title");
-				String article_content = rs.getString("article_content");
-				String user_id = rs.getString("user_id");
+				int article_id = rs.getInt("communication_id");
+				String article_title = rs.getString("communication_title");
+				String article_content = rs.getString("communication_content");
+				String user_id = rs.getString("login_id");
 				ArticleBean tl = new ArticleBean();
 				tl.setCommunication_id(article_id);
 				tl.setCommunication_title(article_title);
@@ -112,8 +112,8 @@ public class CommunicationDealDao {
 	public String ContentAdd(String user_name,String main_title, String main_content) {
 		// TODO Auto-generated method stub
 		Connection conn = DBUtil.getConnection();
-		String sql = "insert into tb_article(user_id,article_title,article_content,user_type) values (?,?,?,?)";
-		String idset = "UPDATE tb_article SET article_id=id WHERE article_title=? and article_content=?";
+		String sql = "insert into tb_communication(login_id,communication_title,communication_content,communication_type) values (?,?,?,?)";
+		String idset = "UPDATE tb_communication SET communication_id=id WHERE communication_title=? and communication_content=?";
 		String temp = "NO";
 		PreparedStatement pstm = null;
 		PreparedStatement pstm_idset = null;

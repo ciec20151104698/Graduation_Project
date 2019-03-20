@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cp.bean.UserBean;
-import com.cp.service.ReplyService;
+import com.cp.service.CommunicationService;
 
 /**
  * Servlet implementation class ReplyServlet
@@ -39,9 +39,9 @@ public class ReplyServlet extends HttpServlet {
 		UserBean user = (UserBean)request.getSession().getAttribute("USER");
 		
 		
-		ReplyService replyadd = new ReplyService();
+		CommunicationService replyadd = new CommunicationService();
 		String temp = "";
-		temp = replyadd.content_add(host_article_id,user.getLogin_name(),reply_title,reply_content);
+		temp = replyadd.reply_add(host_article_id,user.getLogin_name(),reply_title,reply_content);
 		if(temp=="YES") {
 			response.sendRedirect("noteList.jsp");
 		}
