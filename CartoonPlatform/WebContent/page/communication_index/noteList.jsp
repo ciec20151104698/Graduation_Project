@@ -80,9 +80,9 @@
 						CommunicationDealDao dao = new CommunicationDealDao();
 						List<ArticleBean> list = dao.selectArticle();
 						for (ArticleBean tl : list) {
-							int artical_id = tl.getCommunication_id();
+							String artical_id = Integer.toString(tl.getCommunication_id());
 					%>
-					<tr class="xt-bg" onClick="window.location.href='reply.jsp?article_id=<%=article_id%>'">
+					<tr class="xt-bg" onClick="window.location.href='reply.jsp?article_id=<%= artical_id%>'">
 						<td><%=tl.getLogin_id()%></td>
 						<td colspan="7"><%=tl.getCommunication_title()%></td>
 						<td colspan="2">当前固定时间</td>
