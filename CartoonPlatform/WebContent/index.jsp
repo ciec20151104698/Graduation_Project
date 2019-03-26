@@ -31,7 +31,7 @@
 			</div>
 			<nav class="header-nav">
 				<ul>
-					<li><span class="line"></span> <a href="#" class="dreamer">首页</a>
+					<li><span class="line"></span> <a href="index.jsp" class="dreamer">首页</a>
 						<i class="icon-text__pink icon-new">new</i></li>
 					<li><span class="line"></span>欢迎用户 <span class="xt-yanse"><%=userinfo.getLogin_name()%></span> 登录本网站</a></li>
 					<li><span class="line"></span> <a href="person_OLD.jsp" class="icon-text__pink register">个人中心</a></li>
@@ -53,15 +53,15 @@
 			<div class="banner clearfix">
 				<div class="slider" id="slider">
 					<ul class="slider-wrapper">
-						<li class="item" data-title="这位上神！速速到我的本子里来"><a href="#"
+						<li class="item" data-title="这位上神！速速到我的本子里来"><a href="page/communication_index/kownledge/communication_index.jsp"
 							class="pic"><img src="images/index_image/cont/slider_img1.jpg" alt="#"></a>
 						</li>
 						<li class="item" data-title="想换上新衣去旅行！" data-author="by 占秋">
-							<a href="#" class="pic"><img
+							<a href="page/communication_index/kownledge/communication_index.jsp" class="pic"><img
 								src="images/index_image/cont/slider_img2.jpg" alt="#"></a>
 						</li>
 						<li class="item" data-title="你的书写工具需要一个庇护所"
-							data-author="by Moollly"><a href="#" class="pic"><img
+							data-author="by Moollly"><a href="page/communication_index/kownledge/communication_index.jsp" class="pic"><img
 								src="images/index_image/cont/slider_img3.jpg" alt="#"></a></li>
 						<li class="item" data-title="气温起伏，一件外套保护你" data-author="by 郑南音">
 							<a href="#" class="pic"><img
