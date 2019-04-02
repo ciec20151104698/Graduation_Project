@@ -12,11 +12,11 @@ public class CommunicationService {
 		return temp;
 	}
 	
-	public String content_add(String user_name,String main_title, String main_content) {
+	public String content_add(String user_id,String main_title, String main_content) {
 		// TODO Auto-generated method stub
 		String temp = "NO";
 		CommunicationDealDao contentadd = new CommunicationDealDao();
-		temp = contentadd.ContentAdd(user_name,main_title,main_content);
+		temp = contentadd.ContentAdd(user_id,main_title,main_content);
 		return temp;
 	}
 

@@ -17,7 +17,6 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.cp.dao.FileUploadDao;
-import com.cp.dao.FileUploadDao;
 
 /**
  * Servlet implementation class UploadServlet

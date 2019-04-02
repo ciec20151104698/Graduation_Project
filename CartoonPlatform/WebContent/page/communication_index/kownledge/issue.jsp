@@ -1,28 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
-<%@page import="com.cp.bean.UserBean"%>
 <%@page import="com.cp.dao.CommunicationDealDao,com.cp.bean.ArticleBean"%>
+<%@page import="com.cp.bean.UserBean"%>
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-	UserBean userinfo = (UserBean) request.getSession().getAttribute("USERINFO");
+	UserBean user = (UserBean) request.getSession().getAttribute("USERINFO");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>GP-CP</title>
 
 <link rel="shortcut icon" href="images/favicon.png" />
-
-
-
 
 <!-- Style Sheet-->
 <link rel="stylesheet" href="style.css" />
@@ -38,12 +30,6 @@
 <link rel='stylesheet' id='custom-css-css'
 	href='css/custom5152.html?ver=1.0' type='text/css' media='all' />
 
-
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-<!--[if lt IE 9]>
-                <script src="js/html5.js"></script></script>
-                <![endif]-->
-<title>Insert title here</title>
 </head>
 <body>
 	<!-- Start of Header -->
@@ -56,7 +42,7 @@
 				<!-- Website Logo -->
 				<a href="index-2.html" title="Knowledge Base Theme"> <img
 					src="images/logo.png" alt="Knowledge Base Theme">
-				</a> <span class="tag-line">当前登录用户：<%=userinfo.getLogin_name()%></span>
+				</a> <span class="tag-line">当前登录用户 <%=user.getLogin_name() %></span>
 			</div>
 
 
@@ -104,97 +90,52 @@
 			<div class="row">
 
 				<!-- start of page content -->
-				<%
-					String article = request.getParameter("article_id");
-					CommunicationDealDao find = new CommunicationDealDao();
-					ArticleBean host = find.selecthost(article);
-					System.out.println(article);
-					request.setAttribute("HOSTARTICLEID", article);
-				%>
 				<div class="span8 page-content">
 
-					<ul class="breadcrumb">
-						<li><a href="#">Knowledge Base Theme</a><span class="divider">/</span></li>
-						<li><a href="#"
-							title="View all posts in Server &amp; Database">Server &amp;
-								Database</a>
-					</ul>
-
-					<article class=" type-post format-standard hentry clearfix">
-
+					<article class="type-page hentry clearfix">
 					<h1 class="post-title">
-						<a href="#"><%=host.getCommunication_title()%></a>
+						<a href="#">Contact</a>
 					</h1>
+					<hr>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+						sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+						aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+						exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
+						commodo consequat.</p>
+					</article>
 
-					<div class="post-meta clearfix">
-						<span class="date">25 Feb, 2013</span> <span class="category"><a
-							href="#" title="View all posts in Server &amp; Database">Server
-								&amp; Database</a></span> <span class="comments"><a href="#"
-							title="Comment on Integrating WordPress with Your Website">3
-								Comments</a></span> <span class="like-count">66</span>
-					</div>
-					<!-- end of post meta -->
 
-					<p><%=host.getCommunication_content()%></p>
+					<form id="contact-form" class="row" action="../../../ContentIssueServlet"
+						method="post">
 
-					<div id="respond">
-
-						<h3>Leave a Reply</h3>
-
-						<div class="cancel-comment-reply">
-							<a rel="nofollow" id="cancel-comment-reply-link" href="#"
-								style="display: none;">Click here to cancel reply.</a>
+						<div class="span2">
+							<label for="reason">Message Title</label>
+						</div>
+						<div class="span6">
+							<input type="text" name="title" id=" reason" class="input-xlarge"
+								value="">
 						</div>
 
+						<div class="span2">
+							<label for="message">Your Message <span>*</span>
+							</label>
+						</div>
+						<div class="span6">
+							<textarea name="submitcontent" id="message"
+								class="required span6" rows="6"
+								title="* Please enter your message"></textarea>
+						</div>
 
-						<form action="#" method="post" id="commentform">
+						<div class="span6 offset2 bm30">
+							<input type="submit" name="submit" value="Send Message"
+								class="btn btn-inverse"> <img src="images/loading.gif"
+								id="contact-loader" alt="Loading...">
+						</div>
 
+						<div class="span6 offset2 error-container"></div>
+						<div class="span8 offset2" id="message-sent"></div>
 
-							<p class="comment-notes">
-								Your email address will not be published. Required fields are
-								marked <span class="required">*</span>
-							</p>
-
-							<div>
-								<label for="author">Name *</label> <input class="span4"
-									type="text" name="author" id="author" value="" size="22">
-							</div>
-
-							<div>
-								<label for="email">Email *</label> <input class="span4"
-									type="text" name="email" id="email" value="" size="22">
-							</div>
-
-							<div>
-								<label for="url">Website</label> <input class="span4"
-									type="text" name="url" id="url" value="" size="22">
-							</div>
-
-
-							<div>
-								<label for="comment">Comment</label>
-								<textarea class="span8" name="comment" id="comment" cols="58"
-									rows="10"></textarea>
-							</div>
-
-							<p class="allowed-tags">
-								You can use these HTML tags and attributes <small><code>&lt;a
-										href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym
-										title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt;
-										&lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt;
-										&lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></small>
-							</p>
-
-							<div>
-								<input class="btn" name="submit" type="submit" id="submit"
-									value="Submit Comment">
-							</div>
-
-						</form>
-
-					</div>
-
-					</section> <!-- end of comments -->
+					</form>
 				</div>
 				<!-- end of page content -->
 
@@ -207,7 +148,7 @@
 						answer, contact us for further help.</p>
 				</div>
 				</section> <section class="widget">
-				<h3 class="title">Featured Articles</h3>
+				<h3 class="title">Latest Articles</h3>
 				<ul class="articles">
 					<li class="article-entry standard">
 						<h4>
@@ -237,39 +178,6 @@
 							title="View all posts in Advanced Techniques">Advanced
 								Techniques</a></span> <span class="like-count">6</span>
 					</li>
-				</ul>
-				</section> <section class="widget">
-				<h3 class="title">Categories</h3>
-				<ul>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Advanced
-							Techniques</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Designing
-							in WordPress</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Server
-							&amp; Database</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet, ">Theme
-							Development</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Website
-							Dev</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">WordPress
-							for Beginners</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet, ">WordPress
-							Plugins</a></li>
-				</ul>
-				</section> <section class="widget">
-				<h3 class="title">Recent Comments</h3>
-				<ul id="recentcomments">
-					<li class="recentcomments"><a href="#" rel="external nofollow"
-						class="url">John Doe</a> on <a href="#">Integrating WordPress
-							with Your Website</a></li>
-					<li class="recentcomments">saqib sarwar on <a href="#">Integrating
-							WordPress with Your Website</a></li>
-					<li class="recentcomments"><a href="#" rel="external nofollow"
-						class="url">John Doe</a> on <a href="#">Integrating WordPress
-							with Your Website</a></li>
-					<li class="recentcomments"><a href="#" rel="external nofollow"
-						class="url">Mr WordPress</a> on <a href="#">Installing
-							WordPress</a></li>
 				</ul>
 				</section> </aside>
 				<!-- end of sidebar -->
@@ -385,15 +293,17 @@
 
 	<!-- script -->
 	<script type='text/javascript' src='js/jquery-1.8.3.min.js'></script>
-	<script type='text/javascript' src='js/jquery.easing.1.3.js'></script>
 	<script type='text/javascript'
-		src='js/prettyphoto/jquery.prettyPhoto.js'></script>
+		src='js/jquery.easing.1.34e44.js?ver=1.3'></script>
+	<script type='text/javascript'
+		src='js/prettyphoto/jquery.prettyPhotoaeb9.js?ver=3.1.4'></script>
+	<script type='text/javascript'
+		src='js/jquery.liveSearchd5f7.js?ver=2.0'></script>
 	<script type='text/javascript' src='js/jflickrfeed.js'></script>
-	<script type='text/javascript' src='js/jquery.liveSearch.js'></script>
-	<script type='text/javascript' src='js/jquery.form.js'></script>
-	<script type='text/javascript' src='js/jquery.validate.min.js'></script>
-	<script type='text/javascript' src='js/custom.js'></script>
+	<script type='text/javascript' src='js/jquery.formd471.js?ver=3.18'></script>
+	<script type='text/javascript'
+		src='js/jquery.validate.minfc6b.js?ver=1.10.0'></script>
+	<script type='text/javascript' src='js/custom5152.js?ver=1.0'></script>
 
-</body>
 </body>
 </html>

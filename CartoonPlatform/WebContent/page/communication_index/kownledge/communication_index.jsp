@@ -51,7 +51,7 @@
 					<li class="current-menu-item"><a href="../../../index.jsp">首页</a></li>
 					<li><a href="home-categories-articles.html">热门</a></li>
 					<li><a href="articles-list.html">看帖</a></li>
-					<li><a href="contact.html">发帖</a></li>
+					<li><a href="issue.jsp">发帖</a></li>
 					<li><a href="../../question_index/question_index.jsp">问题反馈</a></li>
 				</ul>
 			</div>
@@ -106,7 +106,7 @@
 							%>
 							<li class="article-entry standard">
 								<h4>
-									<a href="window.location.href='single.jsp?article_id=<%=artical_id%>'">
+									<a href="single.jsp?article_id=<%=artical_id%>">
 									<%=tl.getCommunication_title()%></a>
 								</h4> <span class="article-meta">25 Feb, 2013 in <a href="#"
 									title="View all posts in Server &amp; Database"><%=tl.getLogin_id()%></a></span> 

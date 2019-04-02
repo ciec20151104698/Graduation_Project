@@ -109,7 +109,7 @@ public class CommunicationDealDao {
 		return list;
 	}
 	
-	public String ContentAdd(String user_name,String main_title, String main_content) {
+	public String ContentAdd(String user_id,String main_title, String main_content) {
 		// TODO Auto-generated method stub
 		Connection conn = DBUtil.getConnection();
 		String sql = "insert into tb_communication(login_id,communication_title,communication_content,communication_type) values (?,?,?,?)";
@@ -120,7 +120,7 @@ public class CommunicationDealDao {
 		ResultSet rs = null;
 		try {
 			pstm = conn.prepareStatement(sql);
-			pstm.setString(1, user_name);
+			pstm.setString(1, user_id);
 			pstm.setString(2, main_title);
 			pstm.setString(3, main_content);
 			pstm.setString(4, "master");
