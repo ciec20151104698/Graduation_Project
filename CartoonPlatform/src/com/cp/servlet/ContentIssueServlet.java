@@ -45,11 +45,11 @@ public class ContentIssueServlet extends HttpServlet {
 		String temp = "";
 		temp = contentadd.content_add(user.getLogin_id(),main_title,main_content);
 		if(temp=="YES") {
-			response.sendRedirect("page/communication_index/noteList.jsp");
+			response.sendRedirect("page/communication_index/kownledge/index.jsp");
 		}else {
 			out.print("<script type='text/javascript'>");
 			out.print("alert('ERROR');");
-			out.print("window.location='page/communication_index/issue.jsp';");
+			out.print("window.location='page/communication_index/kownledge/issue.jsp';");
 			out.print("</script>");
 		}
 	}

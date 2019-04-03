@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
 <%@page import="com.cp.bean.UserBean"%>
+<%@page import="com.cp.dao.UserDao"%>
 <%@page import="com.cp.dao.CommunicationDealDao,com.cp.bean.ArticleBean"%>
 <%
 	String path = request.getContextPath();
@@ -79,6 +80,8 @@
 	</div>
 	<!-- End of Header -->
 
+
+
 	<!-- Start of Search Wrapper -->
 	<div class="search-area-wrapper">
 		<div class="search-area container">
@@ -97,6 +100,8 @@
 		</div>
 	</div>
 	<!-- End of Search Wrapper -->
+
+
 
 	<!-- Start of Page Container -->
 	<div class="page-container">
@@ -136,6 +141,53 @@
 					<!-- end of post meta -->
 
 					<p><%=host.getCommunication_content()%></p>
+					<section id="comments">
+
+
+					<ol class="commentlist">
+
+						<li class="comment even thread-even depth-1" id="li-comment-2">
+							<article id="comment-2"> <a href="#"> <img alt=""
+								src="http://1.gravatar.com/avatar/50a7625001317a58444a20ece817aeca?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G"
+								class="avatar avatar-60 photo" height="60" width="60">
+							</a> 
+							<%
+								String article_id = request.getParameter("article_id");
+								CommunicationDealDao dao = new CommunicationDealDao();
+								request.getSession().setAttribute("HOSTARTICLEID",article_id);
+								List<ArticleBean> list = dao.selectReply(article_id);
+								for (ArticleBean tl : list) {
+									UserBean username = new UserBean();
+									String tl_getid = tl.getLogin_id();
+									UserDao user_name_search = new UserDao();
+									username = user_name_search.searchinfo(tl_getid);
+							%>
+							<div class="comment-meta">
+
+								<h5 class="author">
+									<cite class="fn"> <a href="#" rel="external nofollow"
+										class="url"><%=username.getLogin_name()%></a>
+									</cite>
+								</h5>
+
+								<p class="date">
+									<a href="#"> <time datetime="2013-02-26T13:18:47+00:00">February
+										26, 2013 at 1:18 pm</time>
+									</a>
+								</p>
+
+							</div>
+							<!-- end .comment-meta -->
+
+							<div class="comment-body">
+								<p><%=tl.getCommunication_content()%></p>
+							</div>
+							<!-- end of comment-body --> </article> <!-- end of comment -->
+							<%
+								}
+							%>
+						</li>
+					</ol>
 
 					<div id="respond">
 
@@ -147,7 +199,7 @@
 						</div>
 
 
-						<form action="#" method="post" id="commentform">
+						<form action="../../../ReplyServlet" method="post" id="commentform">
 
 
 							<p class="comment-notes">
@@ -156,34 +208,10 @@
 							</p>
 
 							<div>
-								<label for="author">Name *</label> <input class="span4"
-									type="text" name="author" id="author" value="" size="22">
-							</div>
-
-							<div>
-								<label for="email">Email *</label> <input class="span4"
-									type="text" name="email" id="email" value="" size="22">
-							</div>
-
-							<div>
-								<label for="url">Website</label> <input class="span4"
-									type="text" name="url" id="url" value="" size="22">
-							</div>
-
-
-							<div>
 								<label for="comment">Comment</label>
-								<textarea class="span8" name="comment" id="comment" cols="58"
+								<textarea class="span8" name=reply_content id="comment" cols="58"
 									rows="10"></textarea>
 							</div>
-
-							<p class="allowed-tags">
-								You can use these HTML tags and attributes <small><code>&lt;a
-										href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym
-										title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt;
-										&lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt;
-										&lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></small>
-							</p>
 
 							<div>
 								<input class="btn" name="submit" type="submit" id="submit"
@@ -194,7 +222,7 @@
 
 					</div>
 
-					</section> <!-- end of comments -->
+					</section><!-- end of comments -->
 				</div>
 				<!-- end of page content -->
 
@@ -238,25 +266,7 @@
 								Techniques</a></span> <span class="like-count">6</span>
 					</li>
 				</ul>
-				</section> <section class="widget">
-				<h3 class="title">Categories</h3>
-				<ul>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Advanced
-							Techniques</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Designing
-							in WordPress</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Server
-							&amp; Database</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet, ">Theme
-							Development</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Website
-							Dev</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">WordPress
-							for Beginners</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet, ">WordPress
-							Plugins</a></li>
-				</ul>
-				</section> <section class="widget">
+				</section>
 				<h3 class="title">Recent Comments</h3>
 				<ul id="recentcomments">
 					<li class="recentcomments"><a href="#" rel="external nofollow"
@@ -297,27 +307,6 @@
 				</section>
 			</div>
 
-			<div class="span3">
-				<section class="widget">
-				<h3 class="title">Categories</h3>
-				<ul>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Advanced
-							Techniques</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Designing
-							in WordPress</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Server
-							&amp; Database</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet, ">Theme
-							Development</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Website
-							Dev</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">WordPress
-							for Beginners</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet, ">WordPress
-							Plugins</a></li>
-				</ul>
-				</section>
-			</div>
 
 			<div class="span3">
 				<section class="widget">
