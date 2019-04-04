@@ -43,7 +43,7 @@ public class ContentIssueServlet extends HttpServlet {
 		UserBean user = (UserBean)request.getSession().getAttribute("USERINFO");
 		CommunicationService contentadd = new CommunicationService();
 		String temp = "";
-		temp = contentadd.content_add(user.getLogin_id(),main_title,main_content);
+		temp = contentadd.content_add(user.getLogin_id(),user.getLogin_name(),main_title,main_content);
 		if(temp=="YES") {
 			response.sendRedirect("page/communication_index/kownledge/index.jsp");
 		}else {

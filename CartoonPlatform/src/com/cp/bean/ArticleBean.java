@@ -1,10 +1,16 @@
 package com.cp.bean;
 
 public class ArticleBean {
-	private String communication_type,communication_content,communication_title,login_id;
+	private String communication_type,communication_content,communication_title,login_id,login_name;
 	private int id,communication_id;
 	
 	
+	public String getLogin_name() {
+		return login_name;
+	}
+	public void setLogin_name(String login_name) {
+		this.login_name = login_name;
+	}
 	public String getLogin_id() {
 		return login_id;
 	}

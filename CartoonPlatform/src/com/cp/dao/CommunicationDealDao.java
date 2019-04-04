@@ -90,14 +90,14 @@ public class CommunicationDealDao {
 			while (rs.next()) {
 				int id = rs.getInt("id");
 				int article_id = rs.getInt("communication_id");
-				String article_title = rs.getString("communication_title");
 				String article_content = rs.getString("communication_content");
 				String user_id = rs.getString("login_id");
+				String user_name = rs.getString("login_name");
 				ArticleBean tl = new ArticleBean();
 				tl.setCommunication_id(article_id);
-				tl.setCommunication_title(article_title);
 				tl.setCommunication_content(article_content);
 				tl.setLogin_id(user_id);
+				tl.setLogin_name(user_name);
 				list.add(tl);
 			}
 		} catch (SQLException e) {
@@ -109,10 +109,10 @@ public class CommunicationDealDao {
 		return list;
 	}
 	
-	public String ContentAdd(String user_id,String main_title, String main_content) {
+	public String ContentAdd(String user_id,String user_name,String main_title, String main_content) {
 		// TODO Auto-generated method stub
 		Connection conn = DBUtil.getConnection();
-		String sql = "insert into tb_communication(login_id,communication_title,communication_content,communication_type) values (?,?,?,?)";
+		String sql = "insert into tb_communication(login_id,login_name,communication_title,communication_content,communication_type) values (?,?,?,?,?)";
 		String idset = "UPDATE tb_communication SET communication_id=id WHERE communication_title=? and communication_content=?";
 		String temp = "NO";
 		PreparedStatement pstm = null;
@@ -121,9 +121,10 @@ public class CommunicationDealDao {
 		try {
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, user_id);
-			pstm.setString(2, main_title);
-			pstm.setString(3, main_content);
-			pstm.setString(4, "master");
+			pstm.setString(2, user_name);
+			pstm.setString(3, main_title);
+			pstm.setString(4, main_content);
+			pstm.setString(5, "master");
 			pstm.executeUpdate();
 			
 			pstm_idset = conn.prepareStatement(idset);
@@ -140,10 +141,10 @@ public class CommunicationDealDao {
 		return temp;
 	}
 	
-	public String ReplyContentAdd(String host_article_id,String reply_id,String reply_content) {
+	public String ReplyContentAdd(String host_article_id,String reply_id,String reply_name,String reply_content) {
 		// TODO Auto-generated method stub
 		Connection conn = DBUtil.getConnection();
-		String sql = "insert into tb_communication(login_id,communication_content,communication_type) values (?,?,?)";
+		String sql = "insert into tb_communication(login_id,login_name,communication_content,communication_type) values (?,?,?,?)";
 		String idset = "UPDATE tb_communication SET communication_id=(SELECT id from (SELECT * FROM tb_communication)AS temp WHERE communication_id=? and communication_type=?) WHERE login_id = ? and communication_content=?";
 		String temp = "NO";
 		PreparedStatement pstm = null;
@@ -152,8 +153,9 @@ public class CommunicationDealDao {
 		try {
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, reply_id);
-			pstm.setString(2, reply_content);
-			pstm.setString(3, "reply");
+			pstm.setString(2, reply_name);
+			pstm.setString(3, reply_content);
+			pstm.setString(4, "reply");
 			pstm.executeUpdate();
 			
 			pstm_idset = conn.prepareStatement(idset);

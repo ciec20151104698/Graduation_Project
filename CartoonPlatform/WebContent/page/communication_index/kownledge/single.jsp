@@ -157,16 +157,13 @@
 								request.getSession().setAttribute("HOSTARTICLEID",article_id);
 								List<ArticleBean> list = dao.selectReply(article_id);
 								for (ArticleBean tl : list) {
-									UserBean username = new UserBean();
-									String tl_getid = tl.getLogin_id();
-									UserDao user_name_search = new UserDao();
-									username = user_name_search.searchinfo(tl_getid);
+									
 							%>
 							<div class="comment-meta">
 
 								<h5 class="author">
 									<cite class="fn"> <a href="#" rel="external nofollow"
-										class="url"><%=username.getLogin_name()%></a>
+										class="url"><%=tl.getLogin_name()%></a>
 									</cite>
 								</h5>
 

@@ -40,7 +40,7 @@ public class ReplyServlet extends HttpServlet {
 		
 		CommunicationService replyadd = new CommunicationService();
 		String temp = "";
-		temp = replyadd.reply_add(host_article_id,user.getLogin_name(),reply_content);
+		temp = replyadd.reply_add(host_article_id,user.getLogin_id(),user.getLogin_name(),reply_content);
 		if(temp=="YES") {
 			response.sendRedirect("page/communication_index/kownledge/index.jsp");
 		}
