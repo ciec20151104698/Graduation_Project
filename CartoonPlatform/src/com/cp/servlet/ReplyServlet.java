@@ -42,7 +42,7 @@ public class ReplyServlet extends HttpServlet {
 		String temp = "";
 		temp = replyadd.reply_add(host_article_id,user.getLogin_id(),user.getLogin_name(),reply_content);
 		if(temp=="YES") {
-			response.sendRedirect("page/communication_index/kownledge/index.jsp");
+			response.sendRedirect("page/communication_index/kownledge/communication_index.jsp");
 		}
 	}
 

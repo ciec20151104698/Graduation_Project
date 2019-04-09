@@ -44,7 +44,7 @@
 <!--[if lt IE 9]>
                 <script src="js/html5.js"></script></script>
                 <![endif]-->
-<title>Insert title here</title>
+<title>GP-CP</title>
 </head>
 <body>
 	<!-- Start of Header -->
@@ -55,8 +55,8 @@
 
 			<div class="logo-container">
 				<!-- Website Logo -->
-				<a href="index-2.html" title="Knowledge Base Theme"> <img
-					src="images/logo.png" alt="Knowledge Base Theme">
+				<a href="../../../index.jsp" title="Knowledge Base Theme"> <img
+					src="images/logo.png" alt="20151104698刘佳琦">
 				</a> <span class="tag-line">当前登录用户：<%=userinfo.getLogin_name()%></span>
 			</div>
 
@@ -66,9 +66,9 @@
 			<div class="menu-top-menu-container">
 				<ul id="menu-top-menu" class="clearfix">
 					<li class="current-menu-item"><a href="../../../index.jsp">首页</a></li>
-					<li><a href="home-categories-articles.html">热门</a></li>
-					<li><a href="articles-list.html">看帖</a></li>
-					<li><a href="contact.html">发帖</a></li>
+					<li><a href="communication_index.jsp">热门</a></li>
+					<li><a href="articles-list.jsp">看帖</a></li>
+					<li><a href="issue.jsp">发帖</a></li>
 					<li><a href="../../question_index/question_index.jsp">问题反馈</a></li>
 				</ul>
 			</div>
@@ -118,13 +118,6 @@
 				%>
 				<div class="span8 page-content">
 
-					<ul class="breadcrumb">
-						<li><a href="#">Knowledge Base Theme</a><span class="divider">/</span></li>
-						<li><a href="#"
-							title="View all posts in Server &amp; Database">Server &amp;
-								Database</a>
-					</ul>
-
 					<article class=" type-post format-standard hentry clearfix">
 
 					<h1 class="post-title">
@@ -141,24 +134,22 @@
 					<!-- end of post meta -->
 
 					<p><%=host.getCommunication_content()%></p>
-					<section id="comments">
-
-
+					<section id="comments"> 
+					<%
+						String article_id = request.getParameter("article_id");
+						CommunicationDealDao dao = new CommunicationDealDao();
+						request.getSession().setAttribute("HOSTARTICLEID", article_id);
+						List<ArticleBean> list = dao.selectReply(article_id);
+						for (ArticleBean tl : list) {
+					%>
 					<ol class="commentlist">
 
 						<li class="comment even thread-even depth-1" id="li-comment-2">
 							<article id="comment-2"> <a href="#"> <img alt=""
 								src="http://1.gravatar.com/avatar/50a7625001317a58444a20ece817aeca?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G"
 								class="avatar avatar-60 photo" height="60" width="60">
-							</a> 
-							<%
-								String article_id = request.getParameter("article_id");
-								CommunicationDealDao dao = new CommunicationDealDao();
-								request.getSession().setAttribute("HOSTARTICLEID",article_id);
-								List<ArticleBean> list = dao.selectReply(article_id);
-								for (ArticleBean tl : list) {
-									
-							%>
+							</a>
+
 							<div class="comment-meta">
 
 								<h5 class="author">
@@ -179,13 +170,12 @@
 							<div class="comment-body">
 								<p><%=tl.getCommunication_content()%></p>
 							</div>
-							<!-- end of comment-body --> </article> <!-- end of comment -->
-							<%
-								}
-							%>
+							<!-- end of comment-body --> </article> <!-- end of comment --> 
 						</li>
 					</ol>
-
+					<%
+					 	}
+					 %>
 					<div id="respond">
 
 						<h3>Leave a Reply</h3>
@@ -196,7 +186,8 @@
 						</div>
 
 
-						<form action="../../../ReplyServlet" method="post" id="commentform">
+						<form action="../../../ReplyServlet" method="post"
+							id="commentform">
 
 
 							<p class="comment-notes">
@@ -206,8 +197,8 @@
 
 							<div>
 								<label for="comment">Comment</label>
-								<textarea class="span8" name=reply_content id="comment" cols="58"
-									rows="10"></textarea>
+								<textarea class="span8" name=reply_content id="comment"
+									cols="58" rows="10"></textarea>
 							</div>
 
 							<div>

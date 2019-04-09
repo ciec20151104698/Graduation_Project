@@ -50,7 +50,7 @@
 										<li><a href="../../index.jsp">首页</a></li>
 										<li><a href="../resource_index/resource_index.jsp">资源站</a>
 										<li><a href="../video_index/video_index.jsp">视频区</a></li>
-										<li><a href="../communication_index/communication_index.jsp">交流站</a></li>
+										<li><a href="../communication_index/kownledge/communication_index.jsp">交流站</a></li>
 										<li><a href="../question_index/question_index.jsp">问题区</a></li>
 										<li><a href="person.jsp">关于个人</a></li>
 									</ul>

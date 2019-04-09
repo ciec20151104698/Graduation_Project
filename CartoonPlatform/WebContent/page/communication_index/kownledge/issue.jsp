@@ -40,8 +40,8 @@
 
 			<div class="logo-container">
 				<!-- Website Logo -->
-				<a href="index-2.html" title="Knowledge Base Theme"> <img
-					src="images/logo.png" alt="Knowledge Base Theme">
+				<a href="../../../index.jsp" title="Knowledge Base Theme"> <img
+					src="images/logo.png" alt="20151104698刘佳琦">
 				</a> <span class="tag-line">当前登录用户 <%=user.getLogin_name() %></span>
 			</div>
 
@@ -51,9 +51,9 @@
 			<div class="menu-top-menu-container">
 				<ul id="menu-top-menu" class="clearfix">
 					<li class="current-menu-item"><a href="../../../index.jsp">首页</a></li>
-					<li><a href="home-categories-articles.html">热门</a></li>
-					<li><a href="articles-list.html">看帖</a></li>
-					<li><a href="contact.html">发帖</a></li>
+					<li><a href="communication_index.jsp">热门</a></li>
+					<li><a href="articles-list.jsp">看帖</a></li>
+					<li><a href="issue.jsp">发帖</a></li>
 					<li><a href="../../question_index/question_index.jsp">问题反馈</a></li>
 				</ul>
 			</div>

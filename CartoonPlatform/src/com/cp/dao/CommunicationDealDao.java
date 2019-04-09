@@ -27,11 +27,13 @@ public class CommunicationDealDao {
 				String article_title = rs.getString("communication_title");
 				String article_content = rs.getString("communication_content");
 				String user_id = rs.getString("login_id");
+				String user_name = rs.getString("login_name");
 				ArticleBean tl = new ArticleBean();
 				tl.setCommunication_id(article_id);
 				tl.setCommunication_title(article_title);
 				tl.setCommunication_content(article_content);
 				tl.setLogin_id(user_id);
+				tl.setLogin_name(user_name);
 				list.add(tl);
 			}
 		} catch (SQLException e) {

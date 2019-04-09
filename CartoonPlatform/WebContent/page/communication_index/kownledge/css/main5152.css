@@ -49,6 +49,8 @@ blockquote p {
 }
 .logo-container img {
   margin-right: 10px;
+  width:115px;
+  height:30px;
 }
 
 .lt-ie9 .logo-container {
