@@ -22,9 +22,6 @@
 
 <link rel="shortcut icon" href="images/favicon.png" />
 
-
-
-
 <!-- Style Sheet-->
 <link rel="stylesheet" href="style.css" />
 <link rel='stylesheet' id='bootstrap-css-css'

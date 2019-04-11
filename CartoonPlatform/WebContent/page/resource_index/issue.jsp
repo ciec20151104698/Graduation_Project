@@ -1,28 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
-<%@page import="com.cp.dao.ResourceDealDao,com.cp.dao.UserDao"%>
-<%@page import="com.cp.bean.UserBean,com.cp.bean.ResourceBean"%>
+<%@page import="com.cp.dao.CommunicationDealDao,com.cp.bean.ArticleBean"%>
+<%@page import="com.cp.bean.UserBean"%>
 <%
-	UserBean userinfo = (UserBean) request.getSession().getAttribute("USERINFO");
+	UserBean user = (UserBean) request.getSession().getAttribute("USERINFO");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="UTF-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>GP-CP</title>
+
 <link rel="shortcut icon" href="images/favicon.png" />
+
 <!-- Style Sheet-->
 <link rel="stylesheet" href="style.css" />
-<link rel='stylesheet' id='bootstrap-css-css' href='css/bootstrap5152.css?ver=1.0' type='text/css' media='all' />
-<link rel='stylesheet' id='responsive-css-css' href='css/responsive5152.css?ver=1.0' type='text/css' media='all' />
-<link rel='stylesheet' id='pretty-photo-css-css' href='js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css' media='all' />
-<link rel='stylesheet' id='main-css-css' href='css/main5152.css?ver=1.0' type='text/css' media='all' />
-<link rel='stylesheet' id='green-skin-css' href='css/green-skin5152.css?ver=1.0' type='text/css' media='all' />
-<link rel='stylesheet' id='custom-css-css' href='css/custom5152.html?ver=1.0' type='text/css' media='all' />
-
-<title>GP-CP资源区</title>
+<link rel='stylesheet' id='bootstrap-css-css'
+	href='css/bootstrap5152.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='responsive-css-css'
+	href='css/responsive5152.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='pretty-photo-css-css'
+	href='js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css'
+	media='all' />
+<link rel='stylesheet' id='main-css-css' href='css/main5152.css?ver=1.0'
+	type='text/css' media='all' />
+<link rel='stylesheet' id='custom-css-css'
+	href='css/custom5152.html?ver=1.0' type='text/css' media='all' />
 
 </head>
 <body>
@@ -34,9 +40,9 @@
 
 			<div class="logo-container">
 				<!-- Website Logo -->
-				<a href="../../../index.jsp" title="GP-CP"> <img
+				<a href="../../../index.jsp" title="Knowledge Base Theme"> <img
 					src="images/logo.png" alt="20151104698刘佳琦">
-				</a> <span class="tag-line">当前登录用户：<%=userinfo.getLogin_name()%></span>
+				</a> <span class="tag-line">当前登录用户 <%=user.getLogin_name() %></span>
 			</div>
 
 
@@ -84,46 +90,52 @@
 			<div class="row">
 
 				<!-- start of page content -->
-				<div class="span8 main-listing">
+				<div class="span8 page-content">
 
-					<article class=" type-post  format-standard hentry clearfix">
+					<article class="type-page hentry clearfix">
+					<h1 class="post-title">
+						<a href="#">Contact</a>
+					</h1>
+					<hr>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+						sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+						aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+						exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
+						commodo consequat.</p>
+					</article>
 
-					<header class="clearfix"> 
-					<%
- 						ResourceDealDao dao = new ResourceDealDao();
- 						List<ResourceBean> list = dao.selectResource();
- 						for (ResourceBean tl : list) {
- 							String resource_id = Integer.toString(tl.getResource_id());
- 							UserDao selectname = new UserDao();
- 							tl.setLogin_name(selectname.searchname(tl.getLogin_id()));
- 					%>
-					<h3 class="post-title">
-						<a href="../../DownloadServlet?file_id=<%=resource_id%>"><%=tl.getResource_title()%></a>
-					</h3>
 
-					<div class="post-meta clearfix">
-						<span class="date">24 Feb, 2013</span> <span class="category"><a
-							href="#" title="View all posts in Website Dev"><%=tl.getLogin_name()%></a></span>
-						<span class="comments"><a href="#"
-							title="Comment on WordPress Site Maintenance">0 Comments</a></span> <span
-							class="like-count">15</span>
-					</div>
-					<!-- end of post meta --> </header>
+					<form id="contact-form" class="row" action="../../../ContentIssueServlet"
+						method="post">
 
-					<p>
-						<%=tl.getResource_content()%>... <a class="readmore-link"
-							href="../../DownloadServlet?file_id=<%=resource_id%>">Read more</a>
-					</p>
-					<%
-						}
-					%> </article>
+						<div class="span2">
+							<label for="reason">Message Title</label>
+						</div>
+						<div class="span6">
+							<input type="text" name="title" id=" reason" class="input-xlarge"
+								value="">
+						</div>
 
-					<div id="pagination">
-						<a href="#" class="btn active">1</a> <a href="#" class="btn">2</a>
-						<a href="#" class="btn">3</a> <a href="#" class="btn">Next »</a> <a
-							href="#" class="btn">Last »</a>
-					</div>
+						<div class="span2">
+							<label for="message">Your Message <span>*</span>
+							</label>
+						</div>
+						<div class="span6">
+							<textarea name="submitcontent" id="message"
+								class="required span6" rows="6"
+								title="* Please enter your message"></textarea>
+						</div>
 
+						<div class="span6 offset2 bm30">
+							<input type="submit" name="submit" value="Send Message"
+								class="btn btn-inverse"> <img src="images/loading.gif"
+								id="contact-loader" alt="Loading...">
+						</div>
+
+						<div class="span6 offset2 error-container"></div>
+						<div class="span8 offset2" id="message-sent"></div>
+
+					</form>
 				</div>
 				<!-- end of page content -->
 
@@ -136,7 +148,7 @@
 						answer, contact us for further help.</p>
 				</div>
 				</section> <section class="widget">
-				<h3 class="title">Featured Articles</h3>
+				<h3 class="title">Latest Articles</h3>
 				<ul class="articles">
 					<li class="article-entry standard">
 						<h4>
@@ -166,39 +178,6 @@
 							title="View all posts in Advanced Techniques">Advanced
 								Techniques</a></span> <span class="like-count">6</span>
 					</li>
-				</ul>
-				</section> <section class="widget">
-				<h3 class="title">Categories</h3>
-				<ul>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Advanced
-							Techniques</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Designing
-							in WordPress</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Server
-							&amp; Database</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet, ">Theme
-							Development</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">Website
-							Dev</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet,">WordPress
-							for Beginners</a></li>
-					<li><a href="#" title="Lorem ipsum dolor sit amet, ">WordPress
-							Plugins</a></li>
-				</ul>
-				</section> <section class="widget">
-				<h3 class="title">Recent Comments</h3>
-				<ul id="recentcomments">
-					<li class="recentcomments"><a href="#" rel="external nofollow"
-						class="url">John Doe</a> on <a href="#">Integrating WordPress
-							with Your Website</a></li>
-					<li class="recentcomments">saqib sarwar on <a href="#">Integrating
-							WordPress with Your Website</a></li>
-					<li class="recentcomments"><a href="#" rel="external nofollow"
-						class="url">John Doe</a> on <a href="#">Integrating WordPress
-							with Your Website</a></li>
-					<li class="recentcomments"><a href="#" rel="external nofollow"
-						class="url">Mr WordPress</a> on <a href="#">Installing
-							WordPress</a></li>
 				</ul>
 				</section> </aside>
 				<!-- end of sidebar -->
@@ -325,5 +304,6 @@
 	<script type='text/javascript'
 		src='js/jquery.validate.minfc6b.js?ver=1.10.0'></script>
 	<script type='text/javascript' src='js/custom5152.js?ver=1.0'></script>
+
 </body>
 </html>

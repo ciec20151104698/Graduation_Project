@@ -115,5 +115,29 @@ public class UserDao {
 			DBUtil.CloseDB(conn,pstm,rs);
 		}
 	}
+	
+	public String searchname(String login_id) {
+		// TODO Auto-generated method stub
+		Connection conn = DBUtil.getConnection();
+		String sql = "select * from tb_user where login_id=?;";
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		String name = "";
+		try {
+			pstm = conn.prepareStatement(sql);
+			pstm.setString(1,login_id);
+			rs = pstm.executeQuery();
+			while(rs.next()) {
+				name=rs.getString("login_name");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.CloseDB(conn,pstm,rs);
+		}
+		return name;
+	}
+	
 
 }
